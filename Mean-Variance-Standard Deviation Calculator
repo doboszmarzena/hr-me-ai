@@ -1,0 +1,31 @@
+import numpy as np
+import math
+
+user =  list(map(int, input("Type number with space: ").split()))
+
+def calcualate():
+    try:
+            calcualate_list = np.array([user]).reshape(3,3)
+            calcualate_mean_0 = np.mean(calcualate_list, axis = 0)
+            calcualate_mean_1 = np.mean(calcualate_list, axis = 1)
+            calcualate_var_0 = np.var(calcualate_list, axis = 0)
+            calcualate_var_1 = np.var(calcualate_list, axis = 1)
+            calcualate_std_0 = np.std(calcualate_list, axis = 0)
+            calcualate_std_1 = np.std(calcualate_list, axis = 1)
+            calcualate_max_0 = np.max(calcualate_list, axis = 0)
+            calcualate_max_1 = np.max(calcualate_list, axis = 1)
+            calcualate_min_0 = np.max(calcualate_list, axis = 0)
+            calcualate_min_1 = np.max(calcualate_list, axis = 1)
+            calcualate_sum_0 = np.sum(calcualate_list, axis = 0)
+            calcualate_sum_1 = np.sum(calcualate_list, axis = 1)
+            dict_calcualate = {'mean': [[a for a in calcualate_mean_0],[b for b in calcualate_mean_1], np.mean(calcualate_list.flatten())],
+                                   'variance': [[a for a in calcualate_var_0],[b for b in calcualate_var_1], np.var(calcualate_list.flatten())],
+                                  'standard deviation': [[a for a in calcualate_std_0], [b for b in calcualate_std_1], np.std(calcualate_list.flatten())],
+                                   'max': [[a for a in calcualate_max_0],[b for b in calcualate_max_1], np.max(calcualate_list.flatten())],
+                                  'min': [[a for a in calcualate_min_0],[b for b in calcualate_min_1], np.min(calcualate_list.flatten())],
+                                  'sum': [[a for a in calcualate_sum_0],[b for b in calcualate_sum_1], np.sum(calcualate_list.flatten())]}
+            print(dict_calcualate)
+    except ValueError:
+        print("List must contain nine numbers.")
+        
+calcualate()
